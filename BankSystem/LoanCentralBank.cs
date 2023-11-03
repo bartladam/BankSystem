@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace BankSystem
 {
-    internal class LoanCentralBank
+    internal class LoanCentralBank : BankLoan
     {
+        public Bank bank { get; set; }
+        public LoanCentralBank(int amountMoney, double interestRate, DateTime lengthLoan) : base(amountMoney, interestRate, lengthLoan)
+        {
+            
+        }
     }
 }
