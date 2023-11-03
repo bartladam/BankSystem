@@ -28,17 +28,19 @@ namespace BankSystem
             accounts = new List<IAccount>();
             ATMs = new List<ATM>();
         }
-        public void GiveLoan()
+        public virtual BankLoan GiveLoan(int amount, DateTime lengthLoan)
         {
+            return new BankLoan(amount,centralBank.interestRate - 0.2d, lengthLoan);
+        }
+        public void CreateAccount(string name, string surname, DateTime birthday)
+        {
+            accounts.Add(new Account(name, surname, birthday, bankCode));
+        }
+        public void TakeLoan(int amount, DateTime lengthLoan)
+        {
+            loan = centralBank.GiveLoan(amount, lengthLoan);
+            loan.bank = this;
             
-        }
-        public void CreateAccount()
-        {
-
-        }
-        public void TakeLoan()
-        {
-
         }
         public void NewATM()
         {
