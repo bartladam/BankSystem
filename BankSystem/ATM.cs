@@ -18,14 +18,18 @@ namespace BankSystem
                 do
                 {
                     Console.Clear();
-                    Console.WriteLine(@"
+                    Console.WriteLine(@"ATM:
+
+Account number {0}
+Your balance: {1},-
+
 OPTIONS:
 1 - INSERT MONEY
 2 - PICK MONEY
-3 - SEND MONEY
-4 - CLOSE");
+3 - CLOSE", account.accountNumber, account.accountMoney);
                     Console.Write("Select: ");
                     choice = Console.ReadKey().KeyChar;
+                    Console.WriteLine();
                     int money;
                     switch (choice)
                     {
@@ -46,24 +50,10 @@ OPTIONS:
                             }
                             Console.WriteLine(account.PickMoney(money));
                             break;
-                        case '3':
-                            int accountNumber;                          
-                            Console.WriteLine("Account number");
-                            while (!int.TryParse(Console.ReadLine(), out accountNumber))
-                            {
-                                Console.WriteLine("Account number");
-                            }
-                            Console.WriteLine("Amount money");
-                            while (!int.TryParse(Console.ReadLine(), out money))
-                            {
-                                Console.Write("Amount money: ");
-                            }
-                            Console.WriteLine(account.SendMoney(accountNumber,money));
-                            break;
-
                     }
+                    Console.ReadKey();
 
-                } while (choice != '4');
+                } while (choice != '3');
             }
         }
     }

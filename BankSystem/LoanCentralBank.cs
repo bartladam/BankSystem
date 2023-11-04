@@ -13,5 +13,9 @@ namespace BankSystem
         {
             
         }
+        public override string ToString()
+        {
+            return string.Format("Bank borrowed money: {0}\nCentral bank interest rate: {1}%\nCentral bank recieved: {2},-", amountMoney, interestRate, bankRecieved);
+        }
     }
 }

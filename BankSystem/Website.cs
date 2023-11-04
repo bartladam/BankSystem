@@ -27,14 +27,19 @@ namespace BankSystem
             do
             {
                 Console.Clear();
-                Console.WriteLine(@"
+                Console.WriteLine(@"WEBSITE {0}:
+
+Account number {1}
+Your balance: {2},-
+
 OPTIONS:
 1 - INSERT MONEY
 2 - PICK MONEY
 3 - SEND MONEY
-4 - CLOSE");
+4 - CLOSE", bank.bankName,account.accountNumber, account.accountMoney);
                 Console.Write("Select: ");
                 choice = Console.ReadKey().KeyChar;
+                Console.WriteLine();
                 int money;
                 switch (choice)
                 {
@@ -57,12 +62,12 @@ OPTIONS:
                         break;
                     case '3':
                         int accountNumber;
-                        Console.WriteLine("Account number");
+                        Console.Write("Account number: ");
                         while (!int.TryParse(Console.ReadLine(), out accountNumber))
                         {
-                            Console.WriteLine("Account number");
+                            Console.Write("Account number: ");
                         }
-                        Console.WriteLine("Amount money");
+                        Console.Write("Amount money: ");
                         while (!int.TryParse(Console.ReadLine(), out money))
                         {
                             Console.Write("Amount money: ");
@@ -71,7 +76,7 @@ OPTIONS:
                         break;
 
                 }
-
+                Console.ReadKey();
             } while (choice != '4');
         }
     }

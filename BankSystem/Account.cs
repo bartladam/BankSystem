@@ -17,7 +17,6 @@ namespace BankSystem
         private Random randomAccountNumber { get; init; }
         public int accountNumber { get; init; }
         public int bankCode { get; init; }
-        private int memoryBalance { get; set; }
         public CreditCard creditCard { get; private set; }
         public CentralBank centralBank { get; private set; }
         public Account(string nameOwner, string surnameOwner, DateTime birthday, string password,int bankCode, CreditCard creditCard, CentralBank centralBank)
@@ -35,15 +34,13 @@ namespace BankSystem
         }
         public string InsertMoney(int amount)
         {
-            memoryBalance = accountMoney;
             accountMoney += amount;
-            return string.Format("Balance before inserted {0}\n your new balance {1}", memoryBalance, accountMoney);
+            return string.Format("Your new balance {0},-", accountMoney);
         }
         public string PickMoney(int amount)
         {
-            memoryBalance = accountMoney;
             accountMoney -= amount;
-            return string.Format("Balance before picked money: {0}\n current balance: {1}", memoryBalance, accountMoney);
+            return string.Format("Current balance: {0},-", accountMoney);
         }
         public string SendMoney(int accountNumber, int amountMoney)
         {
@@ -55,7 +52,7 @@ namespace BankSystem
                     {
                         account.RecieveMoney(this.accountNumber,amountMoney);
                         accountMoney -= amountMoney;
-                        return string.Format("Send {0},-\nYour balance {1}", amountMoney, accountMoney);
+                        return string.Format("Send to account number {0} amount {1},-\nYour balance {2},-",accountNumber ,amountMoney, accountMoney);
                     }
                 }
             }
@@ -63,8 +60,12 @@ namespace BankSystem
         }
         public string RecieveMoney(int accountNumber ,int amountMoney)
         {
-            accountMoney += accountMoney;
-            return string.Format("account: {0}\nrecieved money {1},-\nYour balance {2}", accountNumber, amountMoney, accountMoney);
+            accountMoney += amountMoney;
+            return string.Format("account: {0}\nrecieved money {1},-\nYour balance {2},-", accountNumber, amountMoney, accountMoney);
+        }
+        public override string ToString()
+        {
+            return accountNumber.ToString();
         }
     }
 }

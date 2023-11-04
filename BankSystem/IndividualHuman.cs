@@ -13,7 +13,9 @@ namespace BankSystem
         private DateTime birthday { get; set; }
         private Bank bank { get; set; }
         private CreditCard creditCard { get; set; }
-        public const int maxAmountLoan = 2000000;
+        public int maxAmountLoan = 2000000;
+        public BankLoan loan { get; private set; }
+        public int accountNumber { get; private set; }
         public IndividualHuman(string name, string surname, DateTime birthday, Bank bank)
         {
             this.name = name;
@@ -24,6 +26,7 @@ namespace BankSystem
         public void CreateAccount(string password, int pinCode)
         {
             creditCard = bank.CreateAccount(name, surname, birthday, password, pinCode);
+            accountNumber = creditCard.account.accountNumber;
         }
         public void LookAtAccount(string password)
         {
@@ -33,9 +36,10 @@ namespace BankSystem
         {
             atm.LoginToATM(creditCard, pinCode);
         }
-        public void TakeLoan(int amount)
+        public void TakeLoan(int amount, DateTime lengthLoan)
         {
-            bank.GiveLoan()
+            if (amount < maxAmountLoan)
+                loan = bank.GiveLoan(amount, lengthLoan);
         }
     }
 }

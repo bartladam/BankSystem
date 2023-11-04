@@ -2,3 +2,13 @@ D:\Visual Studio Projects\BankSystem\BankSystem\obj\Debug\net7.0\BankSystem.Gene
 D:\Visual Studio Projects\BankSystem\BankSystem\obj\Debug\net7.0\BankSystem.AssemblyInfoInputs.cache
 D:\Visual Studio Projects\BankSystem\BankSystem\obj\Debug\net7.0\BankSystem.AssemblyInfo.cs
 D:\Visual Studio Projects\BankSystem\BankSystem\obj\Debug\net7.0\BankSystem.csproj.CoreCompileInputs.cache
+D:\Visual Studio Projects\BankSystem\BankSystem\bin\Debug\net7.0\BankSystem.exe
+D:\Visual Studio Projects\BankSystem\BankSystem\bin\Debug\net7.0\BankSystem.deps.json
+D:\Visual Studio Projects\BankSystem\BankSystem\bin\Debug\net7.0\BankSystem.runtimeconfig.json
+D:\Visual Studio Projects\BankSystem\BankSystem\bin\Debug\net7.0\BankSystem.dll
+D:\Visual Studio Projects\BankSystem\BankSystem\bin\Debug\net7.0\BankSystem.pdb
+D:\Visual Studio Projects\BankSystem\BankSystem\obj\Debug\net7.0\BankSystem.dll
+D:\Visual Studio Projects\BankSystem\BankSystem\obj\Debug\net7.0\refint\BankSystem.dll
+D:\Visual Studio Projects\BankSystem\BankSystem\obj\Debug\net7.0\BankSystem.pdb
+D:\Visual Studio Projects\BankSystem\BankSystem\obj\Debug\net7.0\BankSystem.genruntimeconfig.cache
+D:\Visual Studio Projects\BankSystem\BankSystem\obj\Debug\net7.0\ref\BankSystem.dll

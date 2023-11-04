@@ -17,7 +17,7 @@ namespace BankSystem
         public List<IAccount> accounts { get; private set; }
         public List<ATM> ATMs { get; private set; }
         public CentralBank centralBank { get; set; }
-        private LoanCentralBank loan { get; set; }
+        public LoanCentralBank loan { get; set; }
         public Bank(string bankName, countryResidence residence, string bankAdress, int bankCode, Website website)
         {
             this.bankName = bankName;
