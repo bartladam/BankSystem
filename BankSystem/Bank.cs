@@ -14,7 +14,7 @@ namespace BankSystem
         public string bankAdress { get; private set; }
         public int bankCode { get; init; }
         public Website website { get; init; }
-        private List<IAccount> accounts { get; set; }
+        public List<IAccount> accounts { get; private set; }
         public List<ATM> ATMs { get; private set; }
         public CentralBank centralBank { get; set; }
         private LoanCentralBank loan { get; set; }
@@ -27,24 +27,26 @@ namespace BankSystem
             this.website = website;
             accounts = new List<IAccount>();
             ATMs = new List<ATM>();
+            website.bank = this;
         }
         public virtual BankLoan GiveLoan(int amount, DateTime lengthLoan)
         {
             return new BankLoan(amount,centralBank.interestRate - 0.2d, lengthLoan);
         }
-        public void CreateAccount(string name, string surname, DateTime birthday)
+        public CreditCard CreateAccount(string name, string surname, DateTime birthday,string accountPassword, int pinCode)
         {
-            accounts.Add(new Account(name, surname, birthday, bankCode));
+            CreditCard creditCard = new CreditCard(pinCode);
+            accounts.Add(new Account(name, surname, birthday, accountPassword, bankCode, creditCard, centralBank));
+            return creditCard;
         }
         public void TakeLoan(int amount, DateTime lengthLoan)
         {
             loan = centralBank.GiveLoan(amount, lengthLoan);
-            loan.bank = this;
-            
+            loan.bank = this;            
         }
-        public void NewATM()
+        public void NewATM(ATM atm)
         {
-            ATMs.Add(new ATM());
+            ATMs.Add(atm);
         }
       
 

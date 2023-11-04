@@ -11,12 +11,15 @@ namespace BankSystem
         string nameOwner { get; }
         string surnameOwner { get; }
         DateTime birthday { get; }
+        string password { get; }
         int accountMoney { get; }
         int accountNumber { get; }
         int bankCode { get; }
+        CreditCard creditCard { get; }
+        CentralBank centralBank { get; }
         string InsertMoney(int amount);
         string PickMoney(int amount);
-        string SendMoney(Account account);
-        string RecieveMoney();
+        string SendMoney(int accountNumber, int amountMoney);
+        string RecieveMoney(int accountNumber, int amountMoney);
     }
 }

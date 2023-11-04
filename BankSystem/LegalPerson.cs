@@ -8,5 +8,6 @@ namespace BankSystem
 {
     internal class LegalPerson
     {
+
     }
 }
